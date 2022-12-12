@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'hello/normalize.css' %}" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/main.css' %}" />
+</head>
+<body class="back flex_box">
+    <div class="flex_box user_position">
+                {% if request.user.is_authenticated %}
+                <li class="user flex_box">{{user.username}}</li> 
+                {% endif %}
+    </div>
+                
+        <div class="top-pannel flex_box">
+            <div class="btns">
+                <a href = "{% url 'tasks' %}"><button type="submit" class="btn-new">Посмотреть задания</button></a>
+                <a href = "{% url 'task_date' %}"><button type="submit" class="btn-new">Выставить дату завершения задания</button></a>
+                <a href = "{% url 'clients' %}"><button type="submit" class="btn-new">Клиенты</button></a>
+                {% if request.user.is_staff %}
+                <a href = "{% url 'new_emp' %}"><button type="submit" class="btn-new">Зарегистрировать нового сотрудника</button></a>
+                {% endif %}
+                <a href = "{% url 'report' %}"><button type="submit" class="btn-new">Создать отчёт</button></a>
+            </div>
+        </div>
+        <div class="main flex_box">
+            <div class = "content flex_box">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+</body>
+</html>

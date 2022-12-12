@@ -1,0 +1,16 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+        <div class="moves">
+        <h1 class="info h_h">Выберите действие</h1>
+        <a class="btn-back" href = "{% url 'all_tasks' %}"><button type="submit" class="btn-action">Все задания</button></a>
+        {% if manager == True %}
+        <a class="btn-back" href = "{% url 'new_task' %}"><button type="submit" class="btn-action">Новое задание</button></a>
+        {% endif %}
+        </div>
+
+</div>
+{% endblock %}

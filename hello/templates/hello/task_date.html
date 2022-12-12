@@ -1,0 +1,19 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Форма по выставлению даты завершения задания</h1>
+    <form method="get" class="form">
+        <div class="task_form">
+        <input type="text" class="form-control"  name="task_id", placeholder="Введите номер задания"></input>
+        <input type="text" class="form-control"  name="new_date", placeholder="Введите дату окончания"></input>
+        </div>
+        <button class="btn-action" type="submit">Изменить</button>
+        <p class="text">{{ notify }}</p>
+
+    </form>
+    <a href = "{% url 'tasks' %}" class="btn-back"><button type="submit" class="btn-action">Назад</button></a>
+</div>
+{% endblock %}
